@@ -20,5 +20,9 @@ if not test -e $problem_number.json {
     } | tee problem_number.json
 }
 
-js $problem_number.js
+match $(grep ^$problem_number\. solutions.list) {
+    *\ * as (name runner) {
+        $runner $name
+    }
+}
 
