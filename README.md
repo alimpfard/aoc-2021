@@ -7,3 +7,4 @@ This time solved _within_ serenity!
 List of languages/ports used per day:
 - day 1: JavaScript - `js` (native)
 - day 2: jq - `Ports/jq`
+- day 3: Ruby - `Ports/mruby`

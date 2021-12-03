@@ -8,7 +8,7 @@ if test $# -lt 1 {
 
 problem_number=$1
 
-convert_to_json() {
+convert_to_json(problem_number) {
     if not test -e $problem_number.json {
         {
             echo "["
@@ -24,8 +24,8 @@ convert_to_json() {
 }
 
 match $(grep ^$problem_number\. solutions.list) {
-    '* | * | * | *' as (name input_mode runner runner_args) {
-        test json = $input_mode && convert_to_json
+    '* | * | * | *' | '* | * | * |' as (name input_mode runner runner_args) {
+        test json = $input_mode && convert_to_json $problem_number
         $runner ${split ' ' $runner_args} $name
     }
 }
